@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-	<meta name="generator" content="Hugo 0.122.0">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
@@ -12,23 +11,56 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>2kkkkk&#39;s Site</title>
-  <meta name="description" content="" />
+  <title>4.梯度下降 – 2kkkkk&#39;s Site</title>
+  <meta name="description" content="Adagrad梯度下降的学习率$\eta $既不能设置的太大，也不能太小。
+自适应的学习率：
+逐渐减小$\eta $ 给不同的参数不同的学习率 Vanilla Gradient descent $$ w^{t&#43;1}\leftarrow w^{t}-\eta ^{t}g^{t} $$ Adagrad $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t} $$ 其中， $$ \eta ^{t}=\frac{\eta }{\sqrt{t&#43;1}} $$ t为迭代次数
+$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$
+$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t&#43;1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} $ 化简之后，可以得到 $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t} $$
+图1 梯度下降
+从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？
+直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？） 图2" />
 
   
-    <link rel="canonical" href="https://2kkkkk.github.io/" itemprop="url" />
+    <link rel="canonical" href="https://2kkkkk.github.io/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" itemprop="url" />
   
 
   
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://2kkkkk.github.io/" />
+<meta property="og:title" content="4.梯度下降" />
+<meta property="og:description" content="Adagrad梯度下降的学习率$\eta $既不能设置的太大，也不能太小。
+自适应的学习率：
+逐渐减小$\eta $ 给不同的参数不同的学习率 Vanilla Gradient descent $$ w^{t&#43;1}\leftarrow w^{t}-\eta ^{t}g^{t} $$ Adagrad $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t} $$ 其中， $$ \eta ^{t}=\frac{\eta }{\sqrt{t&#43;1}} $$ t为迭代次数
+$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$
+$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t&#43;1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} $ 化简之后，可以得到 $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t} $$
+图1 梯度下降
+从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？
+直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？） 图2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://2kkkkk.github.io/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" /><meta property="article:section" content="blog" />
 
-  <meta itemprop="name" content="">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+
+
+  <meta itemprop="name" content="4.梯度下降">
+<meta itemprop="description" content="Adagrad梯度下降的学习率$\eta $既不能设置的太大，也不能太小。
+自适应的学习率：
+逐渐减小$\eta $ 给不同的参数不同的学习率 Vanilla Gradient descent $$ w^{t&#43;1}\leftarrow w^{t}-\eta ^{t}g^{t} $$ Adagrad $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t} $$ 其中， $$ \eta ^{t}=\frac{\eta }{\sqrt{t&#43;1}} $$ t为迭代次数
+$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$
+$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t&#43;1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} $ 化简之后，可以得到 $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t} $$
+图1 梯度下降
+从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？
+直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？） 图2">
+
+<meta itemprop="wordCount" content="113">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="4.梯度下降"/>
+<meta name="twitter:description" content="Adagrad梯度下降的学习率$\eta $既不能设置的太大，也不能太小。
+自适应的学习率：
+逐渐减小$\eta $ 给不同的参数不同的学习率 Vanilla Gradient descent $$ w^{t&#43;1}\leftarrow w^{t}-\eta ^{t}g^{t} $$ Adagrad $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t} $$ 其中， $$ \eta ^{t}=\frac{\eta }{\sqrt{t&#43;1}} $$ t为迭代次数
+$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$
+$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t&#43;1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} $ 化简之后，可以得到 $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t} $$
+图1 梯度下降
+从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？
+直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？） 图2"/>
 
     <link rel="preload" href="/css/compiled/main.min.fd3ca4c9ae511f407903d78993cac773f3b29f1fe8750943b2e2375869c81cf6.css" as="style" integrity="sha256-/Tykya5RH0B5A9eJk8rHc/Oynx/odQlDsuI3WGnIHPY=" />
     <link href="/css/compiled/main.min.fd3ca4c9ae511f407903d78993cac773f3b29f1fe8750943b2e2375869c81cf6.css" rel="stylesheet" integrity="sha256-/Tykya5RH0B5A9eJk8rHc/Oynx/odQlDsuI3WGnIHPY=" />
@@ -77,7 +109,7 @@
             title="Home"
             href="/"
             
-            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-font-medium"
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
           >
             <span class="hx-text-center">Home</span>
           </a><a
@@ -91,7 +123,7 @@
             title="Blog"
             href="/blog"
             
-            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-font-medium"
           >
             <span class="hx-text-center">Blog</span>
           </a><a
@@ -133,7 +165,7 @@
   </nav>
 </div>
 
-  <div class='hx-mx-auto hx-flex hx-max-w-screen-xl'>
+  <div class="hx-mx-auto hx-flex hx-max-w-screen-xl">
     <div class="mobile-menu-overlay [transition:background-color_1.5s_ease] hx-fixed hx-inset-0 hx-z-10 hx-bg-black/80 dark:hx-bg-black/60 hx-hidden"></div>
 <aside class="sidebar-container hx-flex hx-flex-col print:hx-hidden md:hx-top-16 md:hx-shrink-0 md:hx-w-64 md:hx-self-start max-md:[transform:translate3d(0,-100%,0)] md:hx-hidden xl:hx-block">
   
@@ -167,7 +199,7 @@
     <ul class="hx-flex hx-flex-col hx-gap-1 md:hx-hidden">
       
       
-          <li class=""><a
+          <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/blog/"
@@ -210,7 +242,7 @@
               
             </li></ul>
       </div>
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/blog/li_ml_2017/"
@@ -299,13 +331,16 @@
   >3.偏差与方差
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"
     
   >4.梯度下降
     </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'></ul>
+  
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -411,19 +446,95 @@
 </button>
 </div></div></aside>
     
-<nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents"></nav>
+<nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul></ul><ul></ul><ul></ul><ul></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline hx-ml-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
 
     <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
       <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
-        <h1 class="hx-text-center hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100"></h1>
+        <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
+      <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+        <a href="https://2kkkkk.github.io/blog/">Blog</a>
+      </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+        <a href="https://2kkkkk.github.io/blog/li_ml_2017/">Li</a>
+      </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">4.梯度下降</div>
+</div>
+
+        <h1 class="hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100">4.梯度下降</h1>
+        <div class="hx-mt-4 hx-mb-16 hx-text-gray-500 hx-text-sm hx-flex hx-items-center hx-flex-wrap hx-gap-y-2"></div>
         <div class="content">
-          <p><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" loading="lazy" /></p>
-<p>👋 Welcome!</p>
-<p>- My name is 🌟</p>
-<p>- Blog theme: <a href="https://github.com/adityatelange/hugo-PaperMod/" target="_blank" rel="noopener"><strong>hugo-PaperMod</strong></a></p>
+          <h1>Adagrad</h1><p>梯度下降的学习率$\eta $既不能设置的太大，也不能太小。</p>
+<p>自适应的学习率：</p>
+<ol>
+<li>逐渐减小$\eta $</li>
+<li>给不同的参数不同的学习率</li>
+</ol>
+<p><strong>Vanilla Gradient descent</strong>
+$$
+w^{t+1}\leftarrow w^{t}-\eta ^{t}g^{t}
+$$
+<strong>Adagrad</strong>
+$$
+w^{t+1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t}
+$$
+其中，
+$$
+\eta ^{t}=\frac{\eta }{\sqrt{t+1}}
+$$
+t为迭代次数</p>
+<p>$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$</p>
+<p>$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t+1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}}
+$
+化简之后，可以得到
+$$
+w^{t+1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}
+$$</p>
+<p><a href="https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/0D9EDF7AD35C46A99DA2DC8251DD4167/1614" target="_blank" rel="noopener">图1 梯度下降</a></p>
+<p>从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？</p>
+<p>直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？）
+<a href="https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/B6B330AD4BD746E78AB8E4FA1323735A/1612" target="_blank" rel="noopener">图2</a></p>
+<p>如下图3所示，以一元二次函数为例，$x_0$处的best step为$\frac{\left | 2ax_{0}+b \right |}{2a}$，best step的分子为$\left | 2ax_{0}+b \right |$，其实是一元二次函数在$x_0$处的一阶微分；分母为$2a$，其实是一元二次函数在$x_0$处的二阶微分。也就是说，
+$$
+best\ step=\frac{\left | 一阶微分 \right |}{二阶微分}
+$$
+<strong>（但是这只是一元二次函数的情况，一阶微分/二阶微分 这种形式具有通用性吗？）</strong>
+<a href="https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/A56E6F5D2A5D4B6EAC318180358A34FE/1613" target="_blank" rel="noopener">图3</a></p>
+<p>现在再来看Adagrad的表达式，step的分母$\sum_{i=0}^{t}\left ( g^{i} \right )^{2}$其实相当于二阶微分，原因是，如果一个函数的二阶微分很大，那么对其一阶微分进行采样，求这些点的均方根，得到的结果也会大，即下图中右图绿色的函数；如果一个函数的二阶微分小，那么对其一阶微分进行采样，求这些点的均方根，得到的结果也会较小，如下图左图蓝色函数所示。</p>
+<p><strong>也就是说，参数w(之前的)所有一阶微分值的均方根可以用来表示二阶微分。</strong>
+<a href="https://note.youdao.com/yws/public/resource/51650564a898ed60f731f39632108706/xmlnote/0E97BF2FC7B64D939D2FCE095DEE2BFC/2302" target="_blank" rel="noopener">图4</a></p>
+<h1>随机梯度下降</h1><p>更新参数时不是用所有样本上的梯度，而是只用一个样本上的梯度来更新参数。</p>
+<h1>Feature scaling</h1><h1>梯度下降</h1><p>以后提到梯度下降，就想象成“下山”（相当于有2个参数）。</p>
+<p>需要注意的是，每次更新参数后，损失函数不一定会下降！（跟学习率有关）</p>
+<p><strong>梯度下降的本质是只考虑一阶项时的泰勒展开。</strong> 牛顿法考虑了2阶导数。</p>
+<p>为什么梯度下降可以使损失函数降低，因此梯度的方向是函数增长最快（一  阶导数）的方向，因此将参数朝着负梯度方向进行更新，可以使函数值降低。那么为什么梯度的方向是函数增长的方向呢，因为泰勒展开中的一阶项是+号（N阶项都是+号）。</p>
+<p>而且由于泰勒展开的前提是$\Delta x$无限小，因此学习率$\eta$也需要无限小（即将参数限制在一个很小的范围内），才能满足泰勒展开的条件。</p>
+<p><strong>就像玩红警一样，只有单位走过的地方我们才知道那里的地形高低（LOSS的大小），如果我们一步步走的话，可能只能走到局部最小点。其他没走过的地方是战争迷雾，只要开了全图作弊器，我们才知道全局最小点的位置。这就和泰勒展开一个道理，泰勒展开的前提条件是$\Delta x$无限小，也就是只能看到周围很小的区域，采用梯度下降的方式，可能只能走到局部最小点。</strong></p>
+<p><strong>也就是说，由于梯度下降的本质是泰勒展开，那么梯度下降的问题就在于泰勒展开的前提条件是$\Delta x$无限小，所以就会造成无法得到全局最优解的问题。</strong></p>
 
         </div>
+        <div class="hx-mt-16"></div>
+        
+        <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
+        href="/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/"
+        title="5.分类（生成式模型）"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>5.分类（生成式模型）</a><a
+        href="/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/"
+        title="3.偏差与方差"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >3.偏差与方差<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+        
       </main>
     </article>
   </div>

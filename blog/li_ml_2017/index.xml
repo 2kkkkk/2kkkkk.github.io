@@ -1,0 +1,541 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2kkkkk&#39;s Site – Li</title>
+    <link>https://2kkkkk.github.io/blog/li_ml_2017/</link>
+    <description>Recent content in Li on 2kkkkk&#39;s Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="https://2kkkkk.github.io/blog/li_ml_2017/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/</guid>
+      <description>
+        
+        
+        &lt;p&gt;hand crafed rules 基于规则的机器很僵硬，且永远不会超过制定规则的人类的智慧，因此需要让机器可以自主学习。&lt;/p&gt;
+&lt;p&gt;机器学习本质上就是找到一个函数$f(x)$，给定一个输入x，得到一个输出y。怎样找到这个函数呢？&lt;/p&gt;
+&lt;p&gt;可以分为3步。第一步，先人为给定一个function set即model；第二步，定义衡量一个function好坏的标准；第三步，从function set中找到一个最好的函数，即最优化问题。这就类似于把大象装进冰箱需要3个步骤一样。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;机器学习的Task：&lt;strong&gt;回归、分类、structure learning（如机器翻译）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Method：&lt;strong&gt;线性模型、非线性模型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Scenario：&lt;strong&gt;有监督学习、半监督学习、迁移学习、无监督学习、强化学习&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AlphaGO是有监督学习+强化学习&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/11.why-deep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/11.why-deep/</guid>
+      <description>
+        
+        
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;在相同的参数数量下，深的网络要比胖的网络效果要好。&lt;/p&gt;
+&lt;p&gt;深度神经网络其实是在做模组化（Modularization），每一层相当于一个模块（或者说是子函数），浅层相当于基础的模块，深的层相当在基本模块上的基础上构建的功能更复杂的模块（子函数-&amp;gt;主函数）。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/13.pca/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/13.pca/</guid>
+      <description>
+        
+        
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;层次聚类类似于Hoffman树的构建。&lt;/p&gt;
+&lt;h1&gt;PCA&lt;/h1&gt;&lt;p&gt;先说公式：$Z=WX$，$X$为原始数据集，维度为n$\times$m，n为样本数量，m为特征数量，$W$为由k个m维向量构成的矩阵（由m维降到k维），$Z$为降维后的数据，维度为n$\times$k。&lt;/p&gt;
+&lt;p&gt;怎样找到$W$呢， PCA的做法是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先找第一个m维向量w1，使数据集中的n个点投影到向量w1后的方差最大。&lt;/li&gt;
+&lt;li&gt;再找第二个m维向量w2，在保证w1和w2正交的前提下，使数据集中的n个点投影到向量w2后的方差最大。&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;一直找到第k个m维向量wk，&lt;strong&gt;每一个向量都要在保证与之前的向量正交的前提下&lt;/strong&gt;，使数据集中的n个点投影到向量w2后的方差最大。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;怎样找到w1,w2,&amp;hellip;,wk呢，以w1为例，
+$$
+Var(z_1)=\sum_{z_1}(z_1-\bar{z_1})^2=\sum_x(w^1\cdot (x-\bar{x}))^2=(w^1)^T\sum(x-\bar{x})(x-\bar{x})^Tw^1=(w^1)^TCov(x)w^1
+$$
+其中，$Cov(x)$为原始数据集$X$的协方差矩阵（&lt;strong&gt;协方差矩阵为实对阵矩阵，其特征向量相互正交&lt;/strong&gt;），要使上式最大，通过拉格朗日乘子法，约束条件为$w^1(w^1)^T=1$（w的模为1，单位向量），可以求得w1为协方差矩阵$Cov(x)$对应于最大的特征值的特征向量，同理，可以求出w2&amp;hellip;wk分别为对应于第2大&amp;hellip;第k大的特征值的特征向量。&lt;/p&gt;
+&lt;p&gt;由于w1,w2,&amp;hellip;,wk是相互正交的，因此降维后的数据$Z$的各特征列也是线性无关的（正交），且$Z$的协方差矩阵是对角矩阵。&lt;/p&gt;
+&lt;h2&gt;PCA和SVD 的区别与联系&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;pca和svd-的区别与联系&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pca%e5%92%8csvd-%e7%9a%84%e5%8c%ba%e5%88%ab%e4%b8%8e%e8%81%94%e7%b3%bb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;区别：PCA和SVD是两个完全不同的概念。PCA是主成分分析，是一种降维方式，通过选取k个主元即k个向量，w1,w2,&amp;hellip;,wk，将数据集降维到k维。SVD是奇异值分解，是一种矩阵分解技术。&lt;/p&gt;
+&lt;p&gt;联系：PCA中的主成分是原始数据$X$的协方差矩阵$(x-\bar{x})(x-\bar{x})^T$的k个特征向量。矩阵$X$的SVD为$X=U\Sigma V^T$中的$U$是$XX^T$的k个特征向量。&lt;strong&gt;因此如果将原始数据$X$中心化（各个特征列均值为0）得到$X^{&amp;rsquo;}$，对$X^{&amp;rsquo;} $做SVD，得到的$U^{&amp;rsquo;}$中的k个特征向量其实就是对原始数据$X$做PCA，得到的k个主元。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;PCA的另一种角度&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;pca的另一种角度&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pca%e7%9a%84%e5%8f%a6%e4%b8%80%e7%a7%8d%e8%a7%92%e5%ba%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;通过PCA得到k个主元，数据集中每个样本可以看作是这k个主元的线性组合，每个样本线性组合的系数不同。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;PCA的weakness&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;pca的weakness&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pca%e7%9a%84weakness&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;PCA是无监督的方式，高维空间中的两个类通过PCA降维后可能会被merge到一起，无法区分。LDA是有监督折方式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PCA是线性的（各主元是正交的），如下图3维空间中的S形，PCA无法把它“拉直”，只能把它“拍扁”。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/2kkkkk/Notes/blob/master/algorithm/image/pca.jpg&#34; alt=&#34;1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;隐因子分解&lt;/h1&gt;&lt;p&gt;以电影评分矩阵为例，矩阵中的某些列（每列代表一个电影）和某些行（每行代表一个用户）其实是线性相关的，因此可以进行隐因子分解。&lt;/p&gt;
+&lt;p&gt;用于NLP中，对文档和词的共现矩阵进行隐因子分解就是LSA。&lt;/p&gt;
+&lt;h1&gt;附&lt;/h1&gt;&lt;p&gt;PCA保留了高维 空间中的距离信息，如果两个点在高维空间中接近，那么降维后在低维空间中也是接近的。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/14.tsne_autoencoder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/14.tsne_autoencoder/</guid>
+      <description>
+        
+        
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;t-sne&lt;/h1&gt;&lt;p&gt;t-sne的思想是，高维空间中相近的点，经过降维之后在低维空间中的距离仍然很近；高维空间中很远的点，降维之后在低维空间中的距离也会很远，且该距离在低维空间中会被放大一些，变得更远。&lt;/p&gt;
+&lt;p&gt;t-sne可以通过梯度下降求解。&lt;/p&gt;
+&lt;h1&gt;Deep auto-encoder&lt;/h1&gt;&lt;p&gt;PCA可以看作是一个神经网络，隐层是线性的（没有激活函数），输入为$X-\bar{X}$，输出为重构后的X,$\hat{X}$，通过最小化重构误差得到参数。&lt;/p&gt;
+&lt;p&gt;Deep auto-encoder是一个神经网络，也可以用于降维，输入为$X$，输出也为$X$，deep auto-encoder重点不在于得到输出，而在于得到降维后的coder，&lt;strong&gt;实质上就是通过神经网络的方式来降维。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;de-noising auto-encoder&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;de-noising-auto-encoder&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#de-noising-auto-encoder&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;CNN+auto-encoder&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;cnnauto-encoder&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cnnauto-encoder&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;可以用全连接层作为中间层，也可以用卷积层+池化层作中间层，那么在decoder的部分就要做de-maxpooling+ de-convuluntion&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/15.deep-generative-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/15.deep-generative-model/</guid>
+      <description>
+        
+        
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;Pixel RNN&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;输入&lt;/th&gt;
+&lt;th&gt;输出&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;第一个像素点&lt;/td&gt;
+&lt;td&gt;第二个像素点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第一个+第二个像素点&lt;/td&gt;
+&lt;td&gt;第三个像素点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第一个+第二个+第三个像素点&lt;/td&gt;
+&lt;td&gt;第四个像素点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;……&lt;/td&gt;
+&lt;td&gt;……&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;其实就是RNN。因此可以通过输入图像的一部分，让RNN生成剩下的图像。&lt;/p&gt;
+&lt;h1&gt;VAE (variational autoencoder)&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://github.com/2kkkkk/Notes/blob/master/algorithm/image/vae.jpg&#34; alt=&#34;1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;VAE为什么要这么做呢？&lt;/p&gt;
+&lt;p&gt;**直观上的解释：**VAE和之间的auto encoder相比，多了$\sigma _1,\sigma _2,&amp;hellip;$和$e_1,e_2,&amp;hellip;$,相当于引入了随机噪声，$\sigma _1,\sigma _2,&amp;hellip;$是噪声的方差，方差大小是由神经网络自己学到的，但是不能让网络完全自己决定方差大小，因为方差为0时，重构误差最小。因此需要多加入限制项（限定噪声的方差趋于1）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;理论上的解释：高斯混合模型GMM，推导没看懂。。。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1&gt;GAN&lt;/h1&gt;&lt;p&gt;generator VS discriminator&lt;/p&gt;
+&lt;p&gt;先训练discriminator，再固定discriminator参数，训练generator，再固定generator参数，训练discriminator&amp;hellip;&amp;hellip;&amp;hellip;..&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/16.transfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/16.transfer/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Transfer learning 可以分成以下4种情况&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/2kkkkk/Notes/blob/master/algorithm/image/transfer.jpg&#34; alt=&#34;1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h1&gt;model fine-tuning&lt;/h1&gt;&lt;p&gt;source data:所有人的语音数据&lt;/p&gt;
+&lt;p&gt;target data:某个人的语音数据&lt;/p&gt;
+&lt;p&gt;model fine-tuning的做法是，用source data 训练得到的网络的参数，作为网络的初始参数，再用target data训练网络，需要注意过拟合问题，可以固定几层参数，只微调某一层的参数。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/</guid>
+      <description>
+        
+        
+        &lt;p&gt;介绍中说过，机器学习本质上就是找到一个函数$f(x)$，那么损失函数Loss function可以理解为函数$f(x)$的函数，它的输入为函数$f(x)$，输出为这个函数的好坏，可以表示为$L(f)$。&lt;/p&gt;
+&lt;p&gt;只要定义了Loss function且Loss function对参数是可微的，那么就可以用梯度下降法。&lt;/p&gt;
+&lt;p&gt;梯度下降法可以表示为：${w}&amp;rsquo;\leftarrow w_{0}-\eta \frac{\mathrm{d} L}{\mathrm{d} w}|&lt;em&gt;{w=w&lt;/em&gt;{0}}$&lt;/p&gt;
+&lt;p&gt;以只有w,b两个参数的线性回归为例，损失函数的梯度为Loss function对所有参数的偏微分构成的vector，即
+$$
+\triangledown L=\begin{bmatrix}
+\frac{\partial L}{\partial w}\
+\
+\frac{\partial L}{\partial b}
+\end{bmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;梯度下降存在的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于非凸函数，可能得到局部最小&lt;/li&gt;
+&lt;li&gt;可能存在鞍点&lt;/li&gt;
+&lt;li&gt;可能存在平坦区域（梯度一直很小，接近于0）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;对于$y=wx+b$这个线性模型来说，可以对模型进行修改，即换一个function set，可以修改为$y=w_1x^2+w_2x+b$或$y=w_1x^3+w_2x^2+w_3x+b$&amp;hellip;，即加入x的2次项、3次项、4次项&amp;hellip;实际上相当于提了新的feature，&lt;strong&gt;随着feature越来越多，模型复杂度也会越来越高，因为对于线性模型来说，模型复杂度即参数个数，也就是特征个数；但树模型的模型复杂度不会随着特征数量增多而增加，因为树模型的模型复杂度是树的深度、叶子节点个数这些&lt;/strong&gt;。当模型复杂度过高时，训练集上的error会很低，会测试集的error会很高，即过拟合，&lt;strong&gt;过拟合其实就是模型学习到了这份训练集上“独有”的一些参数，就像科目二考试中看到后轮压到白线后就打满方向盘一样。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;解决过拟合的一个方法就是，扩大训练集，相当于换了个科目二场地（之前的“规律”可能就没用了）。&lt;/p&gt;
+&lt;p&gt;另一个方法是修改Loss function，在原先的损失函数中加入正则项，使模型平滑。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;课中提到，如果不考虑宝可梦的种类，就对其CP值进行预测，是在瞎忙，因为不同类别的宝可梦，其进化模式是不同的。&lt;strong&gt;因为对于实际的业务场景来说，也要具体问题具体分析，根据情况建立不同的模型，例如嫌疑人预测时要区分犯罪类型。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;模型效果差可能的原因：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;预测的量本身就有随机性&lt;/li&gt;
+&lt;li&gt;还有其他隐藏因素的影响（我的理解是可以多提feature来优化）&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>10.CNN</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/10.cnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/10.cnn/</guid>
+      <description>
+        
+        
+        &lt;p&gt;为什么CNN应用于图像？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;神经元不需要看到整副图像来发现某个模式。（如鸟类检测时，只需要看到图片的一小块区域就可以检测到鸟嘴）&lt;/li&gt;
+&lt;li&gt;相同的模式会出现在图片的不同区域中。（如鸟嘴会出现在图片的不同位置）&lt;/li&gt;
+&lt;li&gt;对图片像素进行子采样不会改变图片中的物体。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;这3个理由都可以让神经网络的参数变少&lt;/strong&gt;，因此CNN由此诞生。&lt;strong&gt;CNN的卷积层考虑了原因1和2，max pooling层考虑了原因3。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Filter的大小是自己设定的，&lt;strong&gt;如果filter大小是3*3，那么就相当于认为模式位于3*3的图片大小内&lt;/strong&gt;（可以被3*3的Filter检测出来）&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;CNN是全连接神经网络的简化版！&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;卷积相当于只激活部分输入层的神经元（对应于原因1的一小块区域）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;卷积操作是同一个Filter对输入做卷积，因此相当于输入层连接到卷积层的权重都是共用的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每一层卷积层可以有多个Filter，有几个Filter相当于做完卷积后的图片有几个channel(检测出了几种模式)。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/8CC7060AA915466B93622494F25FE084/2281&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1&lt;/a&gt;
+&lt;strong&gt;这个地方为什么model2.add(Convolution2D)(50,3,3)之后输出是50*11*11，而不是50*25*11*11，弹幕里说是把25个channel做了平均。。看下源码。。。。。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>12.半监督</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/</guid>
+      <description>
+        
+        
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;半监督+生成式模型&lt;/h1&gt;&lt;p&gt;以二分类为例，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先初始化参数：$\theta ={ P(C_1),P(C_2), \mu ^{1},\mu ^{2},\Sigma }$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据模型参数$\theta$计算无标签数据的后验概率$P_\theta(C_1|x^u)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据第2步的结果，更新模型参数
+$$
+P(C_1)=\frac{N_1+\sum_{x^u}P(C_1|x^u))}{N}
+$$
+$$
+\mu ^1=\frac{1}{N_1}\sum_{x^{r}\epsilon C_1}x^r+\frac{1}{\sum_{x^u}P(C_1|x^u))}\sum_{x^u}P(C_1|x^u))x^u
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;公式2中的第2项相当于无标签数据的加权平均，权重为后验概率。&lt;/p&gt;
+&lt;p&gt;为什么要这样做呢？&lt;/p&gt;
+&lt;p&gt;在有监督+生成式模型中，我们通过极大化有标签数据的似然函数$logL(\theta)=\sum_{x^r}logP_\theta(x^r|\hat{y}^r)P(\hat{y}^r)$来求得模型参数，那么在半监督+生成式模型中，我们就要极大化有标签数据+无标签数据的似然函数$logL(\theta)=\sum_{x^r}logP_\theta(x^r|\hat{y}^r)P(\hat{y}^r)+\sum_{x^r}logP_\theta(x^u)$，由于不知道$x^u$从哪一个label中生成的，因此认为2个label都有可能，所以$x^u$出现的概率等于$P_\theta(x^u)=P_\theta(x^u|C_1)P(C_1)+P_\theta(x^u|C_2)P(C_2)$，但是这个式子不是convex的，因此要迭代的去解，也就是通过上面的3个步骤求解。&lt;/p&gt;
+&lt;h1&gt;半监督+low density&lt;/h1&gt;&lt;p&gt;上面的半监督+生成式模型中认为无标签数所按一定的后验概率属于不同的类别（soft label），而半监督+low density则认为“非黑即白”，即无标签数据只能属于某一特定类别（hard label），其做法是先用有标签数据训练得到一个模型$f^*$，然后用该模型对无标签数据做预测，取部分预测的结果加回到有标签数据中重新训练，反复进行这个过程。&lt;strong&gt;需要注意的是，如果是做回归任务，那么这个方法没用，因为加入的这些数据其实是由模型$f^*$产生的，加入后重新训练得到的模型仍然是$f^*$。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于神经网络来说，soft label这种方法没用，原因如上。&lt;/p&gt;
+&lt;h2&gt;Entropy-based regularization&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;entropy-based-regularization&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#entropy-based-regularization&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;一个分布的熵越大，则不确定性越高，可以将模型预测的无标签数据的概率分布的熵加入到损失函数中，即$L=\sum_{x^{r}}C(y^r,\hat{y}^r)+\lambda\sum_{x^{u}}E(y^u)$&lt;/p&gt;
+&lt;h1&gt;半监督+smoothness assumption&lt;/h1&gt;&lt;p&gt;思想：样本的分布不是均匀的，如果x1和x2在&lt;strong&gt;一个高密度区域内&lt;/strong&gt;（可以想象成聚类后的x1和x2属于同一类）是接近的，那么$\hat{y}^1$和$\hat{y}^2$应该是一样的。&lt;/p&gt;
+&lt;p&gt;那么类似于Entropy-based regularization，我们也可以在损失函数中加入smooth regularization，即$L=\sum_{x^{r}}C(y^r,\hat{y}^r)+\lambda S$，其中$S=\frac{1}{2}\sum_{i,j}w_{i,j}(y^i-y^j)^2=\mathbf{y^T}L \mathbf{y}$，其中i,j为一个高密度区域内的两个点，$w_{i,j}$表示两个点的相似度similarity，L为拉普拉斯矩阵。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>3.偏差与方差</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/</guid>
+      <description>
+        
+        
+        &lt;p&gt;现在先假设随机变量&lt;strong&gt;x&lt;/strong&gt;的均值为$\mu $，方差为$\sigma ^{2} $，现在对其均值及方差进行估计。首先采样出N个点，若以这N个点的均值$m $作为对$\mu $的估计值，由于$m $的期望值等于$\mu $，那么$m $是$\mu $的无偏估计，$m $的方差为$\frac{\sigma ^{2}}{N}$。
+若以这N个点的方差$s^2 $作为对$\sigma ^{2} $的估计，由于$s^2 $的期望为$\frac{N-1}{N}\sigma ^2$不等于$\sigma ^{2} $，那么$s^2 $为$\sigma ^{2} $的有偏估计，$s^2 $的方差为。。视频里没说，可以查一下。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;机器学习中所说的&lt;strong&gt;偏差和方差是针对模型model来说的&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/52A9D2878AFF4A8CB6A1BC05C99DF65C/1616&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1 偏差与方差&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上图中，位于红色靶心的$\hat{f}$表示真正要学习的函数，${f^*}$表示模型model
+&lt;strong&gt;在不同数据集上（即视频中说的平行宇宙）&lt;/strong&gt;
+训练得到的函数，${f^*}$的期望即模型model的偏差，表示其与真正函数$\hat{f}$（即靶心）的偏差程度。，${f^*}$ 的离散程度即模型model的方差。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;通俗地来说，如果以击中靶心为最终目标的话，模型的偏差指的是在瞄准靶心时瞄的准不准，模型的方差指的是在瞄准之后射的准不准（射的位置和瞄的位置的偏离有多大）&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;为什么模型model越简单，方差越小？
+考虑极端的情况，model（function set）中只有一个函数${f^*}=c$，那么不管数据集如何改变（位于哪个平行宇宙）,模型始终会输出同一个函数${f^*}=c$，即0方差。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/65026C4D4E4643D99935B7724E258EA1/1617&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上图中，黑色的线表示真正的函数$\hat{f}$，红色的线表示模型model在不同数据集上学习到的${f^*}$，蓝色的线表示的是所有红色线的平均。左图中的模型只有一次项，模型简单，具有高偏差、低方差；右图中的模型有5次项，模型复杂，具有低偏差、高方差。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;通俗地来说，如果用圆圈来表示模型model的覆盖范围，那么简单模型的圆圈会较小，可能覆盖不到靶心（真正的函数$\hat{f}$），即高偏差，但是正是由于其覆盖范围小，因此其在不同数据集上训练得到的${f^*}$也会相对集中，即低方差；那么复杂模型的圆圈会较大，很可能会覆盖到靶心，即低偏差，但是正是由于其覆盖范围大，其在不同数据集上训练得到的${f^*}$也会相对分散，即高方差。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于复杂模型来说，由于其训练得到的${f^*}$都不一样，但是都是位于靶心附近的（低偏差），因此如果在足够多的数据集上训练出足够多的${f^*}$，最后取这些${f^*}$的平均即为“靶心”&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于神经网络来说，由于DNN模型复杂度高，因此所需的数据集很大，也容易过拟合。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果model偏差大，那么需要提更多的feature，或者换更复杂的model。如果model方差大，那么需要增加data(可以人工制造data)，或者加正则项，降低model复杂度。&lt;/p&gt;
+&lt;p&gt;模型选择（model selection），注意这里是&lt;strong&gt;模型&lt;/strong&gt;选择，可以通过交叉验证进行，以树模型为例，其实也就是对树深度等超参数进行选择，这里的&lt;strong&gt;超参数相当于模型&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;在看这个视频之前，我对高方差的理解是：假设现在有数据集D1，在D1上训练得到了函数${f_1^*}$，那么${f_1^*}$会在另一个数据集D2上表现很差。看完这个视频之后，发现我这样理解确实是正确的（因为高方差本身就是说模型在不同的数据集上训练得到的${f^*}$很不一样，也就是说在D1上表现很好的${f_1^*}$和在D2上表现很好的${f_2^*}$会很不一样，即${f_1^*}$会在另一个数据集D2上表现很差），但还是不够深入。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;还有就是，其实高方差模型并不是不好（DNN不就是很复杂的模型嘛），因为其bias很低，因此只要搞到足够的data，最后取平均，那么就会逼近真实的函数。但是在现实中，由于数据量有限，因此还是不会让模型复杂度太高，尤其是打比赛的时候。&lt;/strong&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>4.梯度下降</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</guid>
+      <description>
+        
+        
+        &lt;h1&gt;Adagrad&lt;/h1&gt;&lt;p&gt;梯度下降的学习率$\eta $既不能设置的太大，也不能太小。&lt;/p&gt;
+&lt;p&gt;自适应的学习率：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;逐渐减小$\eta $&lt;/li&gt;
+&lt;li&gt;给不同的参数不同的学习率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Vanilla Gradient descent&lt;/strong&gt;
+$$
+w^{t+1}\leftarrow w^{t}-\eta ^{t}g^{t}
+$$
+&lt;strong&gt;Adagrad&lt;/strong&gt;
+$$
+w^{t+1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t}
+$$
+其中，
+$$
+\eta ^{t}=\frac{\eta }{\sqrt{t+1}}
+$$
+t为迭代次数&lt;/p&gt;
+&lt;p&gt;$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$&lt;/p&gt;
+&lt;p&gt;$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t+1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}}
+$
+化简之后，可以得到
+$$
+w^{t+1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/0D9EDF7AD35C46A99DA2DC8251DD4167/1614&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1 梯度下降&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？&lt;/p&gt;
+&lt;p&gt;直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？）
+&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/B6B330AD4BD746E78AB8E4FA1323735A/1612&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如下图3所示，以一元二次函数为例，$x_0$处的best step为$\frac{\left | 2ax_{0}+b \right |}{2a}$，best step的分子为$\left | 2ax_{0}+b \right |$，其实是一元二次函数在$x_0$处的一阶微分；分母为$2a$，其实是一元二次函数在$x_0$处的二阶微分。也就是说，
+$$
+best\ step=\frac{\left | 一阶微分 \right |}{二阶微分}
+$$
+&lt;strong&gt;（但是这只是一元二次函数的情况，一阶微分/二阶微分 这种形式具有通用性吗？）&lt;/strong&gt;
+&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/A56E6F5D2A5D4B6EAC318180358A34FE/1613&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;现在再来看Adagrad的表达式，step的分母$\sum_{i=0}^{t}\left ( g^{i} \right )^{2}$其实相当于二阶微分，原因是，如果一个函数的二阶微分很大，那么对其一阶微分进行采样，求这些点的均方根，得到的结果也会大，即下图中右图绿色的函数；如果一个函数的二阶微分小，那么对其一阶微分进行采样，求这些点的均方根，得到的结果也会较小，如下图左图蓝色函数所示。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;也就是说，参数w(之前的)所有一阶微分值的均方根可以用来表示二阶微分。&lt;/strong&gt;
+&lt;a href=&#34;https://note.youdao.com/yws/public/resource/51650564a898ed60f731f39632108706/xmlnote/0E97BF2FC7B64D939D2FCE095DEE2BFC/2302&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图4&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;随机梯度下降&lt;/h1&gt;&lt;p&gt;更新参数时不是用所有样本上的梯度，而是只用一个样本上的梯度来更新参数。&lt;/p&gt;
+&lt;h1&gt;Feature scaling&lt;/h1&gt;&lt;h1&gt;梯度下降&lt;/h1&gt;&lt;p&gt;以后提到梯度下降，就想象成“下山”（相当于有2个参数）。&lt;/p&gt;
+&lt;p&gt;需要注意的是，每次更新参数后，损失函数不一定会下降！（跟学习率有关）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度下降的本质是只考虑一阶项时的泰勒展开。&lt;/strong&gt; 牛顿法考虑了2阶导数。&lt;/p&gt;
+&lt;p&gt;为什么梯度下降可以使损失函数降低，因此梯度的方向是函数增长最快（一  阶导数）的方向，因此将参数朝着负梯度方向进行更新，可以使函数值降低。那么为什么梯度的方向是函数增长的方向呢，因为泰勒展开中的一阶项是+号（N阶项都是+号）。&lt;/p&gt;
+&lt;p&gt;而且由于泰勒展开的前提是$\Delta x$无限小，因此学习率$\eta$也需要无限小（即将参数限制在一个很小的范围内），才能满足泰勒展开的条件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;就像玩红警一样，只有单位走过的地方我们才知道那里的地形高低（LOSS的大小），如果我们一步步走的话，可能只能走到局部最小点。其他没走过的地方是战争迷雾，只要开了全图作弊器，我们才知道全局最小点的位置。这就和泰勒展开一个道理，泰勒展开的前提条件是$\Delta x$无限小，也就是只能看到周围很小的区域，采用梯度下降的方式，可能只能走到局部最小点。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;也就是说，由于梯度下降的本质是泰勒展开，那么梯度下降的问题就在于泰勒展开的前提条件是$\Delta x$无限小，所以就会造成无法得到全局最优解的问题。&lt;/strong&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>5.分类（生成式模型）</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/</guid>
+      <description>
+        
+        
+        &lt;p&gt;如果把分类任务直接当成回归来做的话，那么会存在2个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;regression会惩罚那些太正确的点（离分界面很远的那些点）&lt;/li&gt;
+&lt;li&gt;假设有3类，如果直接把1,2,3三个数字作为回归的目标时，那么1和2之间的距离、2和3之间的距离要比1和3之间的距离要近，而其实1，2，3作为3个类别是没有距离概念的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;其实分类问题（生成式模型）本质就是贝叶斯公式。&lt;/strong&gt; 现在假设有2个类C1,C2，分类任务就是给定一个样本x，判断该样本属于C1还是C2，具体怎样判断呢？我们可以将这个问题转换为给定一个样本x，得到该样本属于C1和C2的概率，根据概率值判断是否属于这个类（如概率大于0.5）。根据贝叶斯公式，样本x属于C1类的概率为：
+$$
+P(C_1|x)=\frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1)+P(x|C_2)P(C_2)}
+$$
+&lt;strong&gt;这个贝叶斯公式是生成式模型的本质！&lt;/strong&gt;
+为了得到$P(C_1|x)$，就需要知道4个概率：2个先验概率$P(C_1)、P(C_2)$以及$P(x|C_1)$、$P(x|C_2)$，这也是为什么叫生成式模型的原因，因为一旦有了这4个概率分布，我们就可以根据这个概率分布自己生成数据。&lt;/p&gt;
+&lt;p&gt;那么怎样得到这4个概率分布呢，2个先验概率$P(C_1)、P(C_2)$可以简单地根据C1和C2类的占比来得到，但是$P(x|C_1)$和$P(x|C_2)$如果直接用x在C1中出现的次数/C1的总样本数，那么x可能在C1中压根就没有出现过（x来自测试集嘛），因此我们需要&lt;strong&gt;估计出C1中x的概率分布（$P(x|C_1)$）和C2中x的概率分布（$P(x|C_2)$）。&lt;/strong&gt;
+&lt;strong&gt;做法是，先假设C1、C2中x都服从某一类分布，如M维高斯分布，然后通过极大似然法得到分布的参数。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高斯分布的参数可以不一样，即均值向量$\mathbf{u_1}$不等于 $\mathbf{u_2}$（$\mathbf{u_1}$和$\mathbf{u_2}$为M维向量，M为特征个数），协方差矩阵$\Sigma_1$也不等于$\Sigma_2$&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高斯分布的参数也可以一样，但是肯定不能完全一样。比即均值向量$\mathbf{u_1}$不等于 $\mathbf{u_2}$，但协方差矩阵$\Sigma_1$等于$\Sigma_2$&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般采用第二种方式，即让分布的某些参数相同，这样可以减少参数数量，且学习效果也可能变好。&lt;strong&gt;视频中将两个分布share相同的协方差矩阵后，分界面变成线性的了&lt;/strong&gt;，分类效果也变好了，具体原因下面再解释。&lt;/p&gt;
+&lt;p&gt;之前的视频中说到机器学习任务可以分为3个部分，model(function set)、loss function、找到最优参数，对于分类问题，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;model就是
+$P(C_1|x)=\frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1)+P(x|C_2)P(C_2)}$，如果P大于0.5，则属于C1类。&lt;/li&gt;
+&lt;li&gt;loss function损失函数其实就是极大似然中的似然函数。&lt;/li&gt;
+&lt;li&gt;找到最优参数就是极大似然法求得最优的参数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;当然也可以&lt;strong&gt;假设feature之间是相互独立（朴素贝叶斯）&lt;/strong&gt; 的（即每一列feature都服从一个一维的高斯分布，即协方差矩阵非对角线位置全为0），但这样效果可能会变差，因为模型变简单了。&lt;/p&gt;
+&lt;p&gt;当然也可以不假设服从高斯分布，比如某个feature取值为0和1，可以假设其服从伯努利分布。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;由贝叶斯后验概率公式得到sigmoid函数：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/51650564a898ed60f731f39632108706/xmlnote/D5EB897D6C66445592F1B503C5A6B41F/2305&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当协方差矩阵$\Sigma_1$和$\Sigma_2$相等时，可以得到线性分界面。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/51650564a898ed60f731f39632108706/xmlnote/4B0B1F5D0A064F34A4EA783467F22F76/2307&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在生成式模型中，我们需要估计出N1,N2,u1,u2,$\Sigma$，进而得到w和b，那么为什么不直接通过训练得到w和b呢？（生成式和判别式的区别）Logistic回归就是这么干的！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;也就是说，对于生成式模型来说，分界面为线性的原因在于：两个类别C1和C2下x的协方差矩阵相同（存在协方差矩阵的前提是两个类别C1和C2下x同时服从D维的高斯分布，若是其他分布，就不一定是协方差矩阵相同这个原因了）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结起来就2点：1.&lt;del&gt;sigmoid函数本质是贝叶斯后验概率公式&lt;/del&gt;sigmoid函数可以由贝叶斯公式推导得到。  2.&lt;del&gt;逻辑斯蒂回归中的线性分界面的本质是两个类别C1和C2下x的协方差矩阵相同&lt;/del&gt;。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Logistic回归也是假设两个类别C1和C2下x同时服从D维的高斯分布吗？？？？？不是，LR是判别式模型，不需要假设数据分布，逻辑斯蒂回归中分界面是线性的就是单纯直接假设出来的，跟之前$\Sigma_1$和$\Sigma_2$相等时得到的分界面是线性的具有本质上的不同，因为一个是判别式模型，一个是生成式模型。&lt;/strong&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>6.逻辑斯蒂回归(判别式模型)</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/</guid>
+      <description>
+        
+        
+        &lt;p&gt;逻辑斯蒂回归假设二分类的分界面为线性的，即
+$$
+P(C_1|x)=\sigma _{w,b}(z)=\sigma(\sum w_ix_i+b)=f_{w,b}(x)
+$$
+如何选择最优的w和b呢，还是用&lt;strong&gt;极大似然法&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对似然函数取对数，取负号，并根据类别的取值0，1，就可以&lt;strong&gt;由似然函数得到交叉熵损失函数&lt;/strong&gt;，如下图所示。
+&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/B8E0F36A67BF4BE6871A9FFB4EFAFE23/1725&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;交叉熵衡量的是两个分布的相似程度，如果两个分布完全一致，则交叉熵为0。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这也为什么要用0，1表示类别，因为概率的取值范围是[0,1]，只有用0，1表示类别，才能将似然函数写成交叉熵损失函数的形式。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有了损失函数后，用梯度下降法求出w,b。&lt;/p&gt;
+&lt;p&gt;LR和线性回归和对比如下图所示。
+&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/73935A65987A454B93EA0B4CE35D6A38/1749&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图2&lt;/a&gt;
+可以看出，LR梯度下降中$w_i$更新式子的形式和线性回归一样。&lt;/p&gt;
+&lt;p&gt;LR如果用平方损失函数，那么从w的求导表达式可以看出，当真实值和预测值相差很大时，梯度仍然很小，不符合逻辑。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;总结一下，LR（判别式模型）其实和生成式模型（前提是如果是高斯分布，二者share同一个协方差矩阵）的model（function set）是一样的，都是
+$$
+P(C_1|x)=\sigma _{w,b}(z)=\sigma(\sum w_ix_i+b)
+$$
+&lt;strong&gt;二者的区别在于，LR没有任何前提假设，直接求解参数w,b；而生成式模型需要假设样本在每个类别下服从某种分布，然后求出分布的参数（如$u_1,u_2,\Sigma$），然后由这些分布的参数再得到w,b。因此，二者找出的w,b通常是不同的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通常情况下，判别式模型的效果会比生成式模型的效果好一些。生成式模型会“脑补”一些数据集中没有发生的情况，会对noise鲁棒一些。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;对于多分类问题，可以将sigmoid函数换为softmax函数，损失函数仍然用多变量的交叉熵损失函数。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;LR无法解决线性不可分问题，这是模型本身的问题，可以通过feature转换来解决。&lt;/p&gt;
+&lt;p&gt;如果将多个LR串接起来，其实每个LR相当于做了不同的feature转换，即一个神经元，这些LR的组合其实就是神经网络。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>7.深度学习简介</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/</guid>
+      <description>
+        
+        
+        &lt;p&gt;神经网络相当自动做特征工程，那么之前特征工程的工作就转变成设计神经网络的结构了。&lt;/p&gt;
+&lt;p&gt;其实任何一个连续函数都可以被只包含一层hidden layer的神经网络所表示，只要这个hidden layer中包含足够的神经元，也就是fat network，那么deep有啥用。。。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>8.反向传播</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;https://note.youdao.com/yws/public/resource/4934d638ff72da99e7441fa4e815dcb0/xmlnote/942987F2AD674803822C93B497438D44/1827&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;图1&lt;/a&gt;
+误差反向传播本质就是链式求导法则，如上图所示。&lt;strong&gt;ｓ可以看成第ｌ层中的某一个神经元，ｘ，ｙ可以看成第ｌ＋１层中和ｓ相连接的两个神经元，那么相当于x和ｙ都是关于ｓ的函数&lt;/strong&gt; &lt;strong&gt;（ｓ会影响到ｘ和ｙ，因为相连嘛）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;那么损失函数Ｌ对ｓ的导数，就等于Ｌ对ｘ的导数乘以ｘ对ｓ的导数＋Ｌ对ｙ的导数乘以ｙ对ｓ的导数。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>9.hello world-Keras</title>
+      <link>https://2kkkkk.github.io/blog/li_ml_2017/9.hello-world-keras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://2kkkkk.github.io/blog/li_ml_2017/9.hello-world-keras/</guid>
+      <description>
+        
+        
+        &lt;p&gt;用mini-batch的原因：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果用随机梯度下降的话，需要对每一个样本单独计算LOSS，而如果是mini-batch的话，可以同时对多个样本计算LOSS，也就是可以写成矩阵相乘的形式，GPU在做矩阵运算时可以并行计算。&lt;/li&gt;
+&lt;li&gt;如果用批梯度下降的话，那么缺少随机性，很容易迭代几次就掉到鞍点或者局部最小点。&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

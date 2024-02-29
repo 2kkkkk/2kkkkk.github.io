@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+
+  <title>Li – 2kkkkk&#39;s Site</title>
+  <meta name="description" content="" />
+
+  
+    <link rel="canonical" href="https://2kkkkk.github.io/blog/li_ml_2017/" itemprop="url" />
+  
+
+  
+
+<meta property="og:title" content="Li" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://2kkkkk.github.io/blog/li_ml_2017/" />
+
+  <meta itemprop="name" content="Li">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Li"/>
+<meta name="twitter:description" content=""/>
+
+    <link rel="preload" href="/css/compiled/main.min.fd3ca4c9ae511f407903d78993cac773f3b29f1fe8750943b2e2375869c81cf6.css" as="style" integrity="sha256-/Tykya5RH0B5A9eJk8rHc/Oynx/odQlDsuI3WGnIHPY=" />
+    <link href="/css/compiled/main.min.fd3ca4c9ae511f407903d78993cac773f3b29f1fe8750943b2e2375869c81cf6.css" rel="stylesheet" integrity="sha256-/Tykya5RH0B5A9eJk8rHc/Oynx/odQlDsuI3WGnIHPY=" />
+
+
+
+  <link href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" rel="stylesheet" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+
+
+
+  
+
+
+  <script>
+     
+    const defaultTheme = 'system';
+
+    const setDarkTheme = () => {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    }
+    const setLightTheme = () => {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+
+    if ("color-theme" in localStorage) {
+      localStorage.getItem("color-theme") === "dark" ? setDarkTheme() : setLightTheme();
+    } else {
+      defaultTheme === "dark" ? setDarkTheme() : setLightTheme();
+      if (defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? setDarkTheme() : setLightTheme();
+      }
+    }
+  </script>
+
+  
+</head>
+<body dir="ltr"><div class="nav-container hx-sticky hx-top-0 hx-z-20 hx-w-full hx-bg-transparent print:hx-hidden">
+  <div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div>
+
+  <nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]">
+    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/">
+        <span class="hx-mx-2 hx-font-extrabold hx-inline hx-select-none" title="2kkkkk&#39;s Site">2kkkkk&#39;s Site</span>
+    </a><a
+            title="Home"
+            href="/"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Home</span>
+          </a><a
+            title="Documentation"
+            href="/docs"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Documentation</span>
+          </a><a
+            title="Blog"
+            href="/blog"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-font-medium"
+          >
+            <span class="hx-text-center">Blog</span>
+          </a><a
+            title="About"
+            href="/about"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">About</span>
+          </a><div class="search-wrapper hx-relative md:hx-w-64">
+  <div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+          <a class="hx-p-2 hx-text-current" target="_blank" rel="noreferer" href="https://github.com/imfing/hextra" title="GitHub"><svg height=24 fill="currentColor" viewBox="3 3 18 18">
+  <path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path>
+</svg>
+<span class="hx-sr-only">GitHub</span>
+          </a><button type="button" aria-label="Menu" class="hamburger-menu -hx-mr-2 hx-rounded hx-p-2 active:hx-bg-gray-400/20 md:hx-hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+<div class="hx-mx-auto hx-flex hx-max-w-screen-xl">
+    <div class="mobile-menu-overlay [transition:background-color_1.5s_ease] hx-fixed hx-inset-0 hx-z-10 hx-bg-black/80 dark:hx-bg-black/60 hx-hidden"></div>
+<aside class="sidebar-container hx-flex hx-flex-col print:hx-hidden md:hx-top-16 md:hx-shrink-0 md:hx-w-64 md:hx-self-start max-md:[transform:translate3d(0,-100%,0)] md:hx-sticky">
+  
+  <div class="hx-px-4 hx-pt-4 md:hx-hidden">
+    <div class="search-wrapper hx-relative md:hx-w-64">
+  <div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx-overflow-y-auto hx-overflow-x-hidden hx-p-4 hx-grow md:hx-h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx-flex hx-flex-col hx-gap-1 md:hx-hidden">
+      
+      
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/"
+    
+  >Blog
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/"
+    
+  >Matrix
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/%E7%9F%A9%E9%98%B5%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/"
+    
+  >矩阵与线性变换
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/markdown/"
+    
+  >Markdown Syntax Guide
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/%E7%90%86%E8%A7%A3n%E7%BB%B4%E6%95%B0%E7%BB%84/"
+    
+  >理解n维数组
+    </a>
+              
+            </li></ul>
+      </div>
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/blog/li_ml_2017/"
+    
+  >Li
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+  
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/"
+    
+  >1.介绍
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/11.why-deep/"
+    
+  >11.why deep
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/13.pca/"
+    
+  >13.PCA
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/14.tsne_autoencoder/"
+    
+  >14.tsne_autoencoder
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/15.deep-generative-model/"
+    
+  >15.deep generative model
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/16.transfer/"
+    
+  >16.transfer
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/"
+    
+  >2.回归
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/10.cnn/"
+    
+  >10.CNN
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/"
+    
+  >12.半监督
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/"
+    
+  >3.偏差与方差
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"
+    
+  >4.梯度下降
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/"
+    
+  >5.分类（生成式模型）
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/"
+    
+  >6.逻辑斯蒂回归(判别式模型)
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
+    
+  >7.深度学习简介
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"
+    
+  >8.反向传播
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/9.hello-world-keras/"
+    
+  >9.hello world-Keras
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/about/"
+    
+  >About
+    </a></li>
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/"
+    
+  >Documentation
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/first-page/"
+    
+  >Demo Page
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/folder/"
+    
+  >Folder
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/folder/leaf/"
+    
+  >Leaf Page
+    </a>
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden">
+        
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/"
+    
+  >Matrix
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/%E7%9F%A9%E9%98%B5%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2/"
+    
+  >矩阵与线性变换
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/markdown/"
+    
+  >Markdown Syntax Guide
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/matrix/%E7%90%86%E8%A7%A3n%E7%BB%B4%E6%95%B0%E7%BB%84/"
+    
+  >理解n维数组
+    </a>
+              
+            </li></ul>
+      </div></li>
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/blog/li_ml_2017/"
+    
+  >Li
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/"
+    
+  >1.介绍
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/11.why-deep/"
+    
+  >11.why deep
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/13.pca/"
+    
+  >13.PCA
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/14.tsne_autoencoder/"
+    
+  >14.tsne_autoencoder
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/15.deep-generative-model/"
+    
+  >15.deep generative model
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/16.transfer/"
+    
+  >16.transfer
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/"
+    
+  >2.回归
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/10.cnn/"
+    
+  >10.CNN
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/"
+    
+  >12.半监督
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/"
+    
+  >3.偏差与方差
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"
+    
+  >4.梯度下降
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/"
+    
+  >5.分类（生成式模型）
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/"
+    
+  >6.逻辑斯蒂回归(判别式模型)
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
+    
+  >7.深度学习简介
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"
+    
+  >8.反向传播
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/li_ml_2017/9.hello-world-keras/"
+    
+  >9.hello world-Keras
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  
+    <div class="  hx-sticky hx-bottom-0 hx-bg-white dark:hx-bg-dark hx-mx-4 hx-py-4 hx-shadow-[0_-12px_16px_#fff] hx-flex hx-items-center hx-gap-2 dark:hx-border-neutral-800 dark:hx-shadow-[0_-12px_16px_#111] contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-shadow-none hx-border-t" data-toggle-animation="show"><div class="hx-flex hx-grow hx-flex-col"><button
+  title="Change theme"
+  data-theme="light"
+  class="theme-toggle hx-group hx-h-7 hx-rounded-md hx-px-2 hx-text-left hx-text-xs hx-font-medium hx-text-gray-600 hx-transition-colors dark:hx-text-gray-400 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50"
+  type="button"
+  aria-label="Change theme"
+>
+  <div class="hx-flex hx-items-center hx-gap-2 hx-capitalize"><svg height=12 class="group-data-[theme=light]:hx-hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg><span class="group-data-[theme=light]:hx-hidden">Light</span><svg height=12 class="group-data-[theme=dark]:hx-hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><span class="group-data-[theme=dark]:hx-hidden">Dark</span></div>
+</button>
+</div></div></aside>
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        <br class="hx-mt-1.5 hx-text-sm" />
+        <h1 class="hx-text-center hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100">Li</h1>
+        <div class="content"></div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/9.hello-world-keras/">9.hello world-Keras</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">用mini-batch的原因：
+如果用随机梯度下降的话，需要对每一个样本单独计算LOSS，而如果是mini-batch的话，可以同时对多个样本计算LOSS，也就是可以写成矩阵相乘的形式，GPU在做矩阵运算时可以并行计算。 如果用批梯度下降的话，那么缺少随机性，很容易迭代几次就掉到鞍点或者局部最小点。 </p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/9.hello-world-keras/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">8.反向传播</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">图1 误差反向传播本质就是链式求导法则，如上图所示。ｓ可以看成第ｌ层中的某一个神经元，ｘ，ｙ可以看成第ｌ＋１层中和ｓ相连接的两个神经元，那么相当于x和ｙ都是关于ｓ的函数 （ｓ会影响到ｘ和ｙ，因为相连嘛）。
+那么损失函数Ｌ对ｓ的导数，就等于Ｌ对ｘ的导数乘以ｘ对ｓ的导数＋Ｌ对ｙ的导数乘以ｙ对ｓ的导数。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/8.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">7.深度学习简介</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">神经网络相当自动做特征工程，那么之前特征工程的工作就转变成设计神经网络的结构了。
+其实任何一个连续函数都可以被只包含一层hidden layer的神经网络所表示，只要这个hidden layer中包含足够的神经元，也就是fat network，那么deep有啥用。。。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/7.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/">6.逻辑斯蒂回归(判别式模型)</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">逻辑斯蒂回归假设二分类的分界面为线性的，即 $$ P(C_1|x)=\sigma _{w,b}(z)=\sigma(\sum w_ix_i&#43;b)=f_{w,b}(x) $$ 如何选择最优的w和b呢，还是用极大似然法。
+对似然函数取对数，取负号，并根据类别的取值0，1，就可以由似然函数得到交叉熵损失函数，如下图所示。 图1
+交叉熵衡量的是两个分布的相似程度，如果两个分布完全一致，则交叉熵为0。
+这也为什么要用0，1表示类别，因为概率的取值范围是[0,1]，只有用0，1表示类别，才能将似然函数写成交叉熵损失函数的形式。
+有了损失函数后，用梯度下降法求出w,b。
+LR和线性回归和对比如下图所示。 图2 可以看出，LR梯度下降中$w_i$更新式子的形式和线性回归一样。
+LR如果用平方损失函数，那么从w的求导表达式可以看出，当真实值和预测值相差很大时，梯度仍然很小，不符合逻辑。
+总结一下，LR（判别式模型）其实和生成式模型（前提是如果是高斯分布，二者share同一个协方差矩阵）的model（function set）是一样的，都是 $$ P(C_1|x)=\sigma _{w,b}(z)=\sigma(\sum w_ix_i&#43;b) $$ 二者的区别在于，LR没有任何前提假设，直接求解参数w,b；而生成式模型需要假设样本在每个类别下服从某种分布，然后求出分布的参数（如$u_1,u_2,\Sigma$），然后由这些分布的参数再得到w,b。因此，二者找出的w,b通常是不同的。
+通常情况下，判别式模型的效果会比生成式模型的效果好一些。生成式模型会“脑补”一些数据集中没有发生的情况，会对noise鲁棒一些。
+对于多分类问题，可以将sigmoid函数换为softmax函数，损失函数仍然用多变量的交叉熵损失函数。
+LR无法解决线性不可分问题，这是模型本身的问题，可以通过feature转换来解决。
+如果将多个LR串接起来，其实每个LR相当于做了不同的feature转换，即一个神经元，这些LR的组合其实就是神经网络。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/6.%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/">5.分类（生成式模型）</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">如果把分类任务直接当成回归来做的话，那么会存在2个问题：
+regression会惩罚那些太正确的点（离分界面很远的那些点） 假设有3类，如果直接把1,2,3三个数字作为回归的目标时，那么1和2之间的距离、2和3之间的距离要比1和3之间的距离要近，而其实1，2，3作为3个类别是没有距离概念的。 其实分类问题（生成式模型）本质就是贝叶斯公式。 现在假设有2个类C1,C2，分类任务就是给定一个样本x，判断该样本属于C1还是C2，具体怎样判断呢？我们可以将这个问题转换为给定一个样本x，得到该样本属于C1和C2的概率，根据概率值判断是否属于这个类（如概率大于0.5）。根据贝叶斯公式，样本x属于C1类的概率为： $$ P(C_1|x)=\frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1)&#43;P(x|C_2)P(C_2)} $$ 这个贝叶斯公式是生成式模型的本质！ 为了得到$P(C_1|x)$，就需要知道4个概率：2个先验概率$P(C_1)、P(C_2)$以及$P(x|C_1)$、$P(x|C_2)$，这也是为什么叫生成式模型的原因，因为一旦有了这4个概率分布，我们就可以根据这个概率分布自己生成数据。
+那么怎样得到这4个概率分布呢，2个先验概率$P(C_1)、P(C_2)$可以简单地根据C1和C2类的占比来得到，但是$P(x|C_1)$和$P(x|C_2)$如果直接用x在C1中出现的次数/C1的总样本数，那么x可能在C1中压根就没有出现过（x来自测试集嘛），因此我们需要估计出C1中x的概率分布（$P(x|C_1)$）和C2中x的概率分布（$P(x|C_2)$）。 做法是，先假设C1、C2中x都服从某一类分布，如M维高斯分布，然后通过极大似然法得到分布的参数。
+高斯分布的参数可以不一样，即均值向量$\mathbf{u_1}$不等于 $\mathbf{u_2}$（$\mathbf{u_1}$和$\mathbf{u_2}$为M维向量，M为特征个数），协方差矩阵$\Sigma_1$也不等于$\Sigma_2$ 高斯分布的参数也可以一样，但是肯定不能完全一样。比即均值向量$\mathbf{u_1}$不等于 $\mathbf{u_2}$，但协方差矩阵$\Sigma_1$等于$\Sigma_2$ 一般采用第二种方式，即让分布的某些参数相同，这样可以减少参数数量，且学习效果也可能变好。视频中将两个分布share相同的协方差矩阵后，分界面变成线性的了，分类效果也变好了，具体原因下面再解释。
+之前的视频中说到机器学习任务可以分为3个部分，model(function set)、loss function、找到最优参数，对于分类问题，
+model就是 $P(C_1|x)=\frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1)&#43;P(x|C_2)P(C_2)}$，如果P大于0.5，则属于C1类。 loss function损失函数其实就是极大似然中的似然函数。 找到最优参数就是极大似然法求得最优的参数。 当然也可以假设feature之间是相互独立（朴素贝叶斯） 的（即每一列feature都服从一个一维的高斯分布，即协方差矩阵非对角线位置全为0），但这样效果可能会变差，因为模型变简单了。
+当然也可以不假设服从高斯分布，比如某个feature取值为0和1，可以假设其服从伯努利分布。
+由贝叶斯后验概率公式得到sigmoid函数：
+图1
+当协方差矩阵$\Sigma_1$和$\Sigma_2$相等时，可以得到线性分界面。
+图2
+在生成式模型中，我们需要估计出N1,N2,u1,u2,$\Sigma$，进而得到w和b，那么为什么不直接通过训练得到w和b呢？（生成式和判别式的区别）Logistic回归就是这么干的！
+也就是说，对于生成式模型来说，分界面为线性的原因在于：两个类别C1和C2下x的协方差矩阵相同（存在协方差矩阵的前提是两个类别C1和C2下x同时服从D维的高斯分布，若是其他分布，就不一定是协方差矩阵相同这个原因了）
+总结起来就2点：1.sigmoid函数本质是贝叶斯后验概率公式sigmoid函数可以由贝叶斯公式推导得到。 2.逻辑斯蒂回归中的线性分界面的本质是两个类别C1和C2下x的协方差矩阵相同。
+Logistic回归也是假设两个类别C1和C2下x同时服从D维的高斯分布吗？？？？？不是，LR是判别式模型，不需要假设数据分布，逻辑斯蒂回归中分界面是线性的就是单纯直接假设出来的，跟之前$\Sigma_1$和$\Sigma_2$相等时得到的分界面是线性的具有本质上的不同，因为一个是判别式模型，一个是生成式模型。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/5.%E5%88%86%E7%B1%BB%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">4.梯度下降</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">Adagrad梯度下降的学习率$\eta $既不能设置的太大，也不能太小。
+自适应的学习率：
+逐渐减小$\eta $ 给不同的参数不同的学习率 Vanilla Gradient descent $$ w^{t&#43;1}\leftarrow w^{t}-\eta ^{t}g^{t} $$ Adagrad $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta ^{t}}{\sigma ^{t}}g^{t} $$ 其中， $$ \eta ^{t}=\frac{\eta }{\sqrt{t&#43;1}} $$ t为迭代次数
+$$g^{t}=\frac{\partial L(\theta ^{t})}{\partial w}$$
+$\sigma ^{t}$为w之前所有微分值的均方根，即$\sigma ^{t}=\sqrt{\frac{1}{t&#43;1}\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} $ 化简之后，可以得到 $$ w^{t&#43;1}\leftarrow w^{t}-\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t} $$
+图1 梯度下降
+从上图中可以看到，Vanilla Gradient descent的做法是，梯度$g^t$越大，那么梯度下降的步幅step：$\eta^tg^t$也越大；而Adagrad的做法是：梯度$g^t$越大，梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$的分子越大，但分母也会越大，即分子和分母对step的影响是相反的，如何解释呢？
+直观的解释是Adagrad中梯度下降的步幅step：$\frac{\eta }{\sum_{i=0}^{t}\left ( g^{i} \right )^{2}} g^{t}$反映了第t轮的梯度值与之前轮次梯度值的反差程度。如下图所示，如果之前轮次的梯度一直很小，但第t轮的梯度值很大，那么step就会很大；如果之前轮次的梯度一直很大，但第t轮的梯度值很小，那么step就会很小。。。。。（所以呢？能说明啥？） 图2</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/4.%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/">3.偏差与方差</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">现在先假设随机变量x的均值为$\mu $，方差为$\sigma ^{2} $，现在对其均值及方差进行估计。首先采样出N个点，若以这N个点的均值$m $作为对$\mu $的估计值，由于$m $的期望值等于$\mu $，那么$m $是$\mu $的无偏估计，$m $的方差为$\frac{\sigma ^{2}}{N}$。 若以这N个点的方差$s^2 $作为对$\sigma ^{2} $的估计，由于$s^2 $的期望为$\frac{N-1}{N}\sigma ^2$不等于$\sigma ^{2} $，那么$s^2 $为$\sigma ^{2} $的有偏估计，$s^2 $的方差为。。视频里没说，可以查一下。
+机器学习中所说的偏差和方差是针对模型model来说的。
+图1 偏差与方差
+上图中，位于红色靶心的$\hat{f}$表示真正要学习的函数，${f^*}$表示模型model 在不同数据集上（即视频中说的平行宇宙） 训练得到的函数，${f^*}$的期望即模型model的偏差，表示其与真正函数$\hat{f}$（即靶心）的偏差程度。，${f^*}$ 的离散程度即模型model的方差。
+通俗地来说，如果以击中靶心为最终目标的话，模型的偏差指的是在瞄准靶心时瞄的准不准，模型的方差指的是在瞄准之后射的准不准（射的位置和瞄的位置的偏离有多大）
+为什么模型model越简单，方差越小？ 考虑极端的情况，model（function set）中只有一个函数${f^*}=c$，那么不管数据集如何改变（位于哪个平行宇宙）,模型始终会输出同一个函数${f^*}=c$，即0方差。
+图2
+上图中，黑色的线表示真正的函数$\hat{f}$，红色的线表示模型model在不同数据集上学习到的${f^*}$，蓝色的线表示的是所有红色线的平均。左图中的模型只有一次项，模型简单，具有高偏差、低方差；右图中的模型有5次项，模型复杂，具有低偏差、高方差。
+通俗地来说，如果用圆圈来表示模型model的覆盖范围，那么简单模型的圆圈会较小，可能覆盖不到靶心（真正的函数$\hat{f}$），即高偏差，但是正是由于其覆盖范围小，因此其在不同数据集上训练得到的${f^*}$也会相对集中，即低方差；那么复杂模型的圆圈会较大，很可能会覆盖到靶心，即低偏差，但是正是由于其覆盖范围大，其在不同数据集上训练得到的${f^*}$也会相对分散，即高方差。
+对于复杂模型来说，由于其训练得到的${f^*}$都不一样，但是都是位于靶心附近的（低偏差），因此如果在足够多的数据集上训练出足够多的${f^*}$，最后取这些${f^*}$的平均即为“靶心”。
+对于神经网络来说，由于DNN模型复杂度高，因此所需的数据集很大，也容易过拟合。
+如果model偏差大，那么需要提更多的feature，或者换更复杂的model。如果model方差大，那么需要增加data(可以人工制造data)，或者加正则项，降低model复杂度。
+模型选择（model selection），注意这里是模型选择，可以通过交叉验证进行，以树模型为例，其实也就是对树深度等超参数进行选择，这里的超参数相当于模型。
+在看这个视频之前，我对高方差的理解是：假设现在有数据集D1，在D1上训练得到了函数${f_1^*}$，那么${f_1^*}$会在另一个数据集D2上表现很差。看完这个视频之后，发现我这样理解确实是正确的（因为高方差本身就是说模型在不同的数据集上训练得到的${f^*}$很不一样，也就是说在D1上表现很好的${f_1^*}$和在D2上表现很好的${f_2^*}$会很不一样，即${f_1^*}$会在另一个数据集D2上表现很差），但还是不够深入。
+还有就是，其实高方差模型并不是不好（DNN不就是很复杂的模型嘛），因为其bias很低，因此只要搞到足够的data，最后取平均，那么就会逼近真实的函数。但是在现实中，由于数据量有限，因此还是不会让模型复杂度太高，尤其是打比赛的时候。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/3.%E5%81%8F%E5%B7%AE%E4%B8%8E%E6%96%B9%E5%B7%AE/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/">12.半监督</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">[TOC]
+半监督&#43;生成式模型以二分类为例，
+先初始化参数：$\theta ={ P(C_1),P(C_2), \mu ^{1},\mu ^{2},\Sigma }$
+根据模型参数$\theta$计算无标签数据的后验概率$P_\theta(C_1|x^u)$
+根据第2步的结果，更新模型参数 $$ P(C_1)=\frac{N_1&#43;\sum_{x^u}P(C_1|x^u))}{N} $$ $$ \mu ^1=\frac{1}{N_1}\sum_{x^{r}\epsilon C_1}x^r&#43;\frac{1}{\sum_{x^u}P(C_1|x^u))}\sum_{x^u}P(C_1|x^u))x^u $$
+公式2中的第2项相当于无标签数据的加权平均，权重为后验概率。
+为什么要这样做呢？
+在有监督&#43;生成式模型中，我们通过极大化有标签数据的似然函数$logL(\theta)=\sum_{x^r}logP_\theta(x^r|\hat{y}^r)P(\hat{y}^r)$来求得模型参数，那么在半监督&#43;生成式模型中，我们就要极大化有标签数据&#43;无标签数据的似然函数$logL(\theta)=\sum_{x^r}logP_\theta(x^r|\hat{y}^r)P(\hat{y}^r)&#43;\sum_{x^r}logP_\theta(x^u)$，由于不知道$x^u$从哪一个label中生成的，因此认为2个label都有可能，所以$x^u$出现的概率等于$P_\theta(x^u)=P_\theta(x^u|C_1)P(C_1)&#43;P_\theta(x^u|C_2)P(C_2)$，但是这个式子不是convex的，因此要迭代的去解，也就是通过上面的3个步骤求解。
+半监督&#43;low density上面的半监督&#43;生成式模型中认为无标签数所按一定的后验概率属于不同的类别（soft label），而半监督&#43;low density则认为“非黑即白”，即无标签数据只能属于某一特定类别（hard label），其做法是先用有标签数据训练得到一个模型$f^*$，然后用该模型对无标签数据做预测，取部分预测的结果加回到有标签数据中重新训练，反复进行这个过程。需要注意的是，如果是做回归任务，那么这个方法没用，因为加入的这些数据其实是由模型$f^*$产生的，加入后重新训练得到的模型仍然是$f^*$。
+对于神经网络来说，soft label这种方法没用，原因如上。
+Entropy-based regularization 一个分布的熵越大，则不确定性越高，可以将模型预测的无标签数据的概率分布的熵加入到损失函数中，即$L=\sum_{x^{r}}C(y^r,\hat{y}^r)&#43;\lambda\sum_{x^{u}}E(y^u)$
+半监督&#43;smoothness assumption思想：样本的分布不是均匀的，如果x1和x2在一个高密度区域内（可以想象成聚类后的x1和x2属于同一类）是接近的，那么$\hat{y}^1$和$\hat{y}^2$应该是一样的。
+那么类似于Entropy-based regularization，我们也可以在损失函数中加入smooth regularization，即$L=\sum_{x^{r}}C(y^r,\hat{y}^r)&#43;\lambda S$，其中$S=\frac{1}{2}\sum_{i,j}w_{i,j}(y^i-y^j)^2=\mathbf{y^T}L \mathbf{y}$，其中i,j为一个高密度区域内的两个点，$w_{i,j}$表示两个点的相似度similarity，L为拉普拉斯矩阵。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/12.%E5%8D%8A%E7%9B%91%E7%9D%A3/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/10.cnn/">10.CNN</a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">为什么CNN应用于图像？
+神经元不需要看到整副图像来发现某个模式。（如鸟类检测时，只需要看到图片的一小块区域就可以检测到鸟嘴） 相同的模式会出现在图片的不同区域中。（如鸟嘴会出现在图片的不同位置） 对图片像素进行子采样不会改变图片中的物体。 这3个理由都可以让神经网络的参数变少，因此CNN由此诞生。CNN的卷积层考虑了原因1和2，max pooling层考虑了原因3。
+Filter的大小是自己设定的，如果filter大小是3*3，那么就相当于认为模式位于3*3的图片大小内（可以被3*3的Filter检测出来）
+CNN是全连接神经网络的简化版！
+卷积相当于只激活部分输入层的神经元（对应于原因1的一小块区域）。
+卷积操作是同一个Filter对输入做卷积，因此相当于输入层连接到卷积层的权重都是共用的。
+每一层卷积层可以有多个Filter，有几个Filter相当于做完卷积后的图片有几个channel(检测出了几种模式)。
+图1 这个地方为什么model2.add(Convolution2D)(50,3,3)之后输出是50*11*11，而不是50*25*11*11，弹幕里说是把25个channel做了平均。。看下源码。。。。。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/10.cnn/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">介绍中说过，机器学习本质上就是找到一个函数$f(x)$，那么损失函数Loss function可以理解为函数$f(x)$的函数，它的输入为函数$f(x)$，输出为这个函数的好坏，可以表示为$L(f)$。
+只要定义了Loss function且Loss function对参数是可微的，那么就可以用梯度下降法。
+梯度下降法可以表示为：${w}’\leftarrow w_{0}-\eta \frac{\mathrm{d} L}{\mathrm{d} w}|{w=w{0}}$
+以只有w,b两个参数的线性回归为例，损失函数的梯度为Loss function对所有参数的偏微分构成的vector，即 $$ \triangledown L=\begin{bmatrix} \frac{\partial L}{\partial w}\ \ \frac{\partial L}{\partial b} \end{bmatrix} $$
+梯度下降存在的问题：
+对于非凸函数，可能得到局部最小 可能存在鞍点 可能存在平坦区域（梯度一直很小，接近于0） 对于$y=wx&#43;b$这个线性模型来说，可以对模型进行修改，即换一个function set，可以修改为$y=w_1x^2&#43;w_2x&#43;b$或$y=w_1x^3&#43;w_2x^2&#43;w_3x&#43;b$…，即加入x的2次项、3次项、4次项…实际上相当于提了新的feature，随着feature越来越多，模型复杂度也会越来越高，因为对于线性模型来说，模型复杂度即参数个数，也就是特征个数；但树模型的模型复杂度不会随着特征数量增多而增加，因为树模型的模型复杂度是树的深度、叶子节点个数这些。当模型复杂度过高时，训练集上的error会很低，会测试集的error会很高，即过拟合，过拟合其实就是模型学习到了这份训练集上“独有”的一些参数，就像科目二考试中看到后轮压到白线后就打满方向盘一样。
+解决过拟合的一个方法就是，扩大训练集，相当于换了个科目二场地（之前的“规律”可能就没用了）。
+另一个方法是修改Loss function，在原先的损失函数中加入正则项，使模型平滑。
+课中提到，如果不考虑宝可梦的种类，就对其CP值进行预测，是在瞎忙，因为不同类别的宝可梦，其进化模式是不同的。因为对于实际的业务场景来说，也要具体问题具体分析，根据情况建立不同的模型，例如嫌疑人预测时要区分犯罪类型。
+模型效果差可能的原因：
+预测的量本身就有随机性 还有其他隐藏因素的影响（我的理解是可以多提feature来优化） </p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/2.%E5%9B%9E%E5%BD%92/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/16.transfer/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">Transfer learning 可以分成以下4种情况
+model fine-tuningsource data:所有人的语音数据
+target data:某个人的语音数据
+model fine-tuning的做法是，用source data 训练得到的网络的参数，作为网络的初始参数，再用target data训练网络，需要注意过拟合问题，可以固定几层参数，只微调某一层的参数。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/16.transfer/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/15.deep-generative-model/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">[TOC]
+Pixel RNN 输入 输出 第一个像素点 第二个像素点 第一个&#43;第二个像素点 第三个像素点 第一个&#43;第二个&#43;第三个像素点 第四个像素点 …… …… 其实就是RNN。因此可以通过输入图像的一部分，让RNN生成剩下的图像。
+VAE (variational autoencoder)
+VAE为什么要这么做呢？
+**直观上的解释：**VAE和之间的auto encoder相比，多了$\sigma _1,\sigma _2,…$和$e_1,e_2,…$,相当于引入了随机噪声，$\sigma _1,\sigma _2,…$是噪声的方差，方差大小是由神经网络自己学到的，但是不能让网络完全自己决定方差大小，因为方差为0时，重构误差最小。因此需要多加入限制项（限定噪声的方差趋于1）
+理论上的解释：高斯混合模型GMM，推导没看懂。。。
+GANgenerator VS discriminator
+先训练discriminator，再固定discriminator参数，训练generator，再固定generator参数，训练discriminator………..</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/15.deep-generative-model/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/14.tsne_autoencoder/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">[TOC]
+t-snet-sne的思想是，高维空间中相近的点，经过降维之后在低维空间中的距离仍然很近；高维空间中很远的点，降维之后在低维空间中的距离也会很远，且该距离在低维空间中会被放大一些，变得更远。
+t-sne可以通过梯度下降求解。
+Deep auto-encoderPCA可以看作是一个神经网络，隐层是线性的（没有激活函数），输入为$X-\bar{X}$，输出为重构后的X,$\hat{X}$，通过最小化重构误差得到参数。
+Deep auto-encoder是一个神经网络，也可以用于降维，输入为$X$，输出也为$X$，deep auto-encoder重点不在于得到输出，而在于得到降维后的coder，实质上就是通过神经网络的方式来降维。
+de-noising auto-encoder CNN&#43;auto-encoder 可以用全连接层作为中间层，也可以用卷积层&#43;池化层作中间层，那么在decoder的部分就要做de-maxpooling&#43; de-convuluntion</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/14.tsne_autoencoder/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/13.pca/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">[TOC]
+层次聚类类似于Hoffman树的构建。
+PCA先说公式：$Z=WX$，$X$为原始数据集，维度为n$\times$m，n为样本数量，m为特征数量，$W$为由k个m维向量构成的矩阵（由m维降到k维），$Z$为降维后的数据，维度为n$\times$k。
+怎样找到$W$呢， PCA的做法是：
+先找第一个m维向量w1，使数据集中的n个点投影到向量w1后的方差最大。 再找第二个m维向量w2，在保证w1和w2正交的前提下，使数据集中的n个点投影到向量w2后的方差最大。 ……一直找到第k个m维向量wk，每一个向量都要在保证与之前的向量正交的前提下，使数据集中的n个点投影到向量w2后的方差最大。 怎样找到w1,w2,…,wk呢，以w1为例， $$ Var(z_1)=\sum_{z_1}(z_1-\bar{z_1})^2=\sum_x(w^1\cdot (x-\bar{x}))^2=(w^1)^T\sum(x-\bar{x})(x-\bar{x})^Tw^1=(w^1)^TCov(x)w^1 $$ 其中，$Cov(x)$为原始数据集$X$的协方差矩阵（协方差矩阵为实对阵矩阵，其特征向量相互正交），要使上式最大，通过拉格朗日乘子法，约束条件为$w^1(w^1)^T=1$（w的模为1，单位向量），可以求得w1为协方差矩阵$Cov(x)$对应于最大的特征值的特征向量，同理，可以求出w2…wk分别为对应于第2大…第k大的特征值的特征向量。
+由于w1,w2,…,wk是相互正交的，因此降维后的数据$Z$的各特征列也是线性无关的（正交），且$Z$的协方差矩阵是对角矩阵。
+PCA和SVD 的区别与联系 区别：PCA和SVD是两个完全不同的概念。PCA是主成分分析，是一种降维方式，通过选取k个主元即k个向量，w1,w2,…,wk，将数据集降维到k维。SVD是奇异值分解，是一种矩阵分解技术。
+联系：PCA中的主成分是原始数据$X$的协方差矩阵$(x-\bar{x})(x-\bar{x})^T$的k个特征向量。矩阵$X$的SVD为$X=U\Sigma V^T$中的$U$是$XX^T$的k个特征向量。因此如果将原始数据$X$中心化（各个特征列均值为0）得到$X^{’}$，对$X^{’} $做SVD，得到的$U^{’}$中的k个特征向量其实就是对原始数据$X$做PCA，得到的k个主元。
+PCA的另一种角度 通过PCA得到k个主元，数据集中每个样本可以看作是这k个主元的线性组合，每个样本线性组合的系数不同。
+PCA的weakness PCA是无监督的方式，高维空间中的两个类通过PCA降维后可能会被merge到一起，无法区分。LDA是有监督折方式。
+PCA是线性的（各主元是正交的），如下图3维空间中的S形，PCA无法把它“拉直”，只能把它“拍扁”。
+隐因子分解以电影评分矩阵为例，矩阵中的某些列（每列代表一个电影）和某些行（每行代表一个用户）其实是线性相关的，因此可以进行隐因子分解。
+用于NLP中，对文档和词的共现矩阵进行隐因子分解就是LSA。
+附PCA保留了高维 空间中的距离信息，如果两个点在高维空间中接近，那么降维后在低维空间中也是接近的。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/13.pca/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/11.why-deep/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">[TOC]
+在相同的参数数量下，深的网络要比胖的网络效果要好。
+深度神经网络其实是在做模组化（Modularization），每一层相当于一个模块（或者说是子函数），浅层相当于基础的模块，深的层相当在基本模块上的基础上构建的功能更复杂的模块（子函数-&gt;主函数）。</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/11.why-deep/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+          <div class="hx-mb-10">
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/"></a></h3><p class="hx-opacity-80 hx-mt-4 hx-leading-7">hand crafed rules 基于规则的机器很僵硬，且永远不会超过制定规则的人类的智慧，因此需要让机器可以自主学习。
+机器学习本质上就是找到一个函数$f(x)$，给定一个输入x，得到一个输出y。怎样找到这个函数呢？
+可以分为3步。第一步，先人为给定一个function set即model；第二步，定义衡量一个function好坏的标准；第三步，从function set中找到一个最好的函数，即最优化问题。这就类似于把大象装进冰箱需要3个步骤一样。
+机器学习的Task：回归、分类、structure learning（如机器翻译）
+Method：线性模型、非线性模型
+Scenario：有监督学习、半监督学习、迁移学习、无监督学习、强化学习
+AlphaGO是有监督学习&#43;强化学习</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/li_ml_2017/1.%E4%BB%8B%E7%BB%8D/">
+                
+              </a>
+            </p>
+            <p class="hx-opacity-50 hx-text-sm hx-mt-4 hx-leading-7"></p>
+          </div>
+        
+      </main>
+    </article>
+    <div class="max-xl:hx-hidden hx-h-0 hx-w-64 hx-shrink-0"></div>
+  </div>
+
+      <footer class="hextra-footer hx-bg-gray-100 hx-pb-[env(safe-area-inset-bottom)] dark:hx-bg-neutral-900 print:hx-bg-transparent"><div
+    class="hx-max-w-screen-xl hx-mx-auto hx-flex hx-justify-center hx-py-12 hx-pl-[max(env(safe-area-inset-left),1.5rem)] hx-pr-[max(env(safe-area-inset-right),1.5rem)] hx-text-gray-600 dark:hx-text-gray-400 md:hx-justify-start"
+  >
+    <div class="hx-flex hx-w-full hx-flex-col hx-items-center sm:hx-items-start"><div class="hx-font-semibold"><a class="hx-flex hx-text-sm hx-items-center hx-gap-1 hx-text-current" target="_blank" rel="noopener noreferrer" title="Hextra GitHub Homepage" href="https://github.com/imfing/hextra">
+    <span>Powered by Hextra<svg height=1em class="hx-inline-block hx-ml-1 hx-align-[-2.5px]" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="m 105.50024,22.224647 c -9.59169,-5.537563 -21.40871,-5.537563 -31.000093,0 L 39.054693,42.689119 C 29.463353,48.226675 23.55484,58.460531 23.55484,69.535642 v 40.928918 c 0,11.07542 5.908513,21.3092 15.499853,26.84652 l 35.445453,20.46446 c 9.591313,5.53732 21.408404,5.53732 31.000094,0 l 35.44507,-20.46446 c 9.59131,-5.53732 15.49985,-15.7711 15.49985,-26.84652 V 69.535642 c 0,-11.075111 -5.90854,-21.308967 -15.49985,-26.846523 z M 34.112797,85.737639 c -1.384445,2.397827 -1.384445,5.352099 0,7.749927 l 24.781554,42.922974 c 1.38437,2.39783 3.942853,3.87496 6.711592,3.87496 h 49.563107 c 2.76905,0 5.3273,-1.47713 6.71144,-3.87496 l 24.78194,-42.922974 c 1.38414,-2.397828 1.38414,-5.3521 0,-7.749927 L 121.88049,42.814746 c -1.38414,-2.397828 -3.94239,-3.874964 -6.71144,-3.874964 H 65.605944 c -2.768739,0 -5.327223,1.477059 -6.711592,3.874964 z" style="stroke-width:0.774993" /></svg></span>
+  </a></div>
+    </div>
+  </div>
+</footer>
+    
+  </body>
+  <script defer src="/js/main.min.92e457542500a28108b983778f84d192194fde06bcb4ade09b6c71e704d202c3.js" integrity="sha256-kuRXVCUAooEIuYN3j4TRkhlP3ga8tK3gm2xx5wTSAsM="></script>
+
+
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+    <script defer src="/en.search.min.54004042a09a3298565fcfb81445bf736dfa337feb551661db3e3f68db598449.js" integrity="sha256-VABAQqCaMphWX8&#43;4FEW/c236M3/rVRZh2z4/aNtZhEk="></script>
+
+
+</html>
